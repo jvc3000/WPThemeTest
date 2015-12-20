@@ -1,0 +1,38 @@
+body { margin-top: 50px}
+
+.carousel {background: #000;}
+.carousel .item {height: 350px; overflow: hidden;}
+.carousel .item img {width: 100%; height: auto; margin-top: -20%;}
+.carousel-caption a {color: #fff;}
+
+.blog-element {display: block; height: 200px; overflow: hidden; background-position: center center; background-repeat: no-repeat; background-size: cover;}
+.blog-element a {color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.5)}
+
+.no-margin { margin: 0; }
+.blog-item { padding: 0; }
+
+/* Header Search Form */
+.search-form-container {display: none; position: fixed; top: 50px; left: 0; right: 0; background-color: rgba(0,0,0,.35); padding: 20px; z-index: 2;}
+.open-search a { font-size: 0; width: 30px; position: relative;}
+.open-search a:after {
+    display: block;
+    position: absolute;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\e003";
+    font-size: 20px;
+    left: 0;
+    top: 50%;
+    line-height: 1em;
+    margin-top: -0.5em;
+}
+
+/* blog Archive HR remove top padding */
+.blog-hr { margin-top: 0px; }
+
+/* custom blog header style */
+.blog-header { margin-bottom: 0px; }
