@@ -1,4 +1,4 @@
-My First Theme
+My First WordPress Theme
 
 Based on the lessons by Alessandro Castellani.
 
