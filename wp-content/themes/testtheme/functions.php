@@ -73,9 +73,9 @@ add_filter('the_generator', 'testtheme_remove_version');
 /**
  * Custom Post Type
  */
-function testtheme_custom_post_type (){
+function testtheme_custom_post_type(){
 	$labels = array(
-		'name' => 'Portfolio',
+		'name' => 'Portfolios',
 		'singular_name' => 'Portfolio',
 		'add_new' => 'Add Item',
 		'all_items' => 'All Items',
@@ -86,7 +86,7 @@ function testtheme_custom_post_type (){
 		'search_item' => 'Search Portfolio',
 		'not_found' => 'No Item Found',
 		'not_found_in_trash' => 'No Item Found In Trash',
-		'parent_item_colon' => 'Parent Item',
+		'parent_item_colon' => 'Parent Item:',
 	);
 	$args = array(
 		'labels' => $labels,
@@ -104,13 +104,42 @@ function testtheme_custom_post_type (){
 			'thumbnail',
 			'revisions',
 		),
-		'taxonomies' => array(
-			'category',
-			'post_tag',
-		),
+		//'taxonomies' => array('category', 'post_tag'),
 		'menu_position' => 5,
 		'exclude_from_search' => false,
 	);
 	register_post_type('portfolio', $args);
 }
 add_action('init', 'testtheme_custom_post_type');
+
+/**
+ * Custom Post Type
+ */
+function testtheme_custom_taxonomies(){
+	// add new taxonomy hierarchical
+	$labels = array(
+		'name' => 'Types',
+		'singular_name' => 'Type',
+		'search_item' => 'Search Types',
+		'all_items' => 'All Types',
+		'parent_item' => 'Parent Type',
+		'parent_item_colon' => 'Parent Type:',
+		'edit_item' => 'Edit Type',
+		'update_item' => 'Update Type',
+		'add_new_item' => 'Add New Type',
+		'new_item_name' => 'New Type Name',
+		'menu_name' => 'Types',
+	);
+	$args = array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => array('slug' => 'type'),
+	);
+	register_taxonomy('type', array('portfolio'), $args);
+
+	// add new taxonomy NOT hierarchical
+}
+add_action('init', 'testtheme_custom_taxonomies');
