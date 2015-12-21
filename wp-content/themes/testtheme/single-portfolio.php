@@ -11,7 +11,23 @@
 					<?php if( has_post_thumbnail() ): ?>
 						<div class="pull-right"><?php the_post_thumbnail('thumbnail'); ?></div>
 					<?php endif; ?>
-					<small><?php the_category(' '); ?> || <?php the_tags(); ?> || <?php edit_post_link() ?></small>
+					<small><?php
+						$terms_list = wp_get_post_terms($post->ID, 'field');
+						$i = 0;
+						foreach( $terms_list as $term ){
+							if( $i > 0 ){ echo ', ';}
+							echo $term->name;
+							$i++;
+						}
+						?> || <?php
+						$terms_list = wp_get_post_terms($post->ID, 'software');
+						$i = 0;
+						foreach( $terms_list as $term ){
+							if( $i > 0 ){ echo ', ';}
+							echo $term->name;
+							$i++;
+						}
+						?> || <?php edit_post_link() ?></small>
 					<?php the_content(); ?>
 					<div class="row">
 						<div class="col-xs-12"><hr></div>
